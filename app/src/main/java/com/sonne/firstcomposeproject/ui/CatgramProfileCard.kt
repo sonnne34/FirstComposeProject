@@ -6,6 +6,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Button
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -37,28 +38,56 @@ fun CatgramProfileCard() {
         ),
         border = BorderStroke(1.dp, MaterialTheme.colors.onBackground)
     ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(8.dp),
-            horizontalArrangement = Arrangement.SpaceEvenly,
-            verticalAlignment = Alignment.CenterVertically
+        Column(
+            modifier = Modifier.padding(16.dp)
         ) {
-            Image(
-                painter = painterResource(id = R.drawable.ic_categram),
-                contentDescription = "logo",
+            Row(
                 modifier = Modifier
-                    .clip(CircleShape)
-                    .size(50.dp)
-                    .background(Color.Magenta)
-                    .padding(2.dp)
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceEvenly,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.ic_categram),
+                    contentDescription = "logo",
+                    modifier = Modifier
+                        .clip(CircleShape)
+                        .size(50.dp)
+                        .background(Color.Magenta)
+                        .padding(2.dp)
+                )
+                UserStatistics(title = "Posts", value = "6950")
+                UserStatistics(title = "Followers", value = "560M")
+                UserStatistics(title = "Following", value = "52")
+            }
+
+            Text(
+                "Catgram",
+                fontFamily = FontFamily.Cursive,
+                fontSize = 32.sp
             )
-            UserStatistics(title = "Posts", value = "6950")
-            UserStatistics(title = "Followers", value = "560M")
-            UserStatistics(title = "Following", value = "52")
+
+            Text(
+                "#AboutMe",
+                fontSize = 14.sp
+            )
+
+            Text(
+                "www.catgram.ru.lakukaracha",
+                fontSize = 14.sp
+            )
+
+            Button(
+                onClick = { }
+            ) {
+                Text(
+                    text = "Follow"
+                )
+            }
         }
     }
 }
+
 
 @Composable
 private fun UserStatistics(
