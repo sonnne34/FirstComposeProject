@@ -9,7 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.ui.Modifier
 import com.sonne.firstcomposeproject.ui.theme.FirstComposeProjectTheme
-import com.sonne.firstcomposeproject.ui.theme.InstagramProfileCard
+import com.sonne.firstcomposeproject.ui.CatgramProfileCard
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
                         .fillMaxSize()
                         .background(MaterialTheme.colors.background)
                 ) {
-                    InstagramProfileCard()
+                    CatgramProfileCard()
                 }
             }
         }
