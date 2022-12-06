@@ -30,8 +30,8 @@ import com.sonne.firstcomposeproject.ui.theme.FirstComposeProjectTheme
 @Composable
 fun CatgramProfileCard() {
     Card(
-        modifier = Modifier.padding(8.dp),
         backgroundColor = MaterialTheme.colors.background,
+        modifier = Modifier.padding(8.dp),
         shape = RoundedCornerShape(
             topStart = 4.dp,
             topEnd = 4.dp
