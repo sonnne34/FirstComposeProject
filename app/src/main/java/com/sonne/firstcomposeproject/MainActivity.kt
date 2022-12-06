@@ -10,6 +10,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.ui.Modifier
 import com.sonne.firstcomposeproject.ui.theme.FirstComposeProjectTheme
 import com.sonne.firstcomposeproject.ui.CatgramProfileCard
+import com.sonne.firstcomposeproject.ui.ScaffoldTest
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,10 +19,10 @@ class MainActivity : ComponentActivity() {
             FirstComposeProjectTheme {
                 Box(
                     modifier = Modifier
-                        .fillMaxSize()
                         .background(MaterialTheme.colors.background)
+                        .fillMaxSize()
                 ) {
-                    CatgramProfileCard()
+                    ScaffoldTest()
                 }
             }
         }
