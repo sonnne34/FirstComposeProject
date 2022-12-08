@@ -10,13 +10,13 @@ import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-@Preview
 @Composable
-fun ScaffoldTest() {
+fun ScaffoldTest(
+    viewModel: MainViewModel
+) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -83,7 +83,7 @@ fun ScaffoldTest() {
         }
     ) {
         Box(modifier = Modifier.padding(it)) {
-            CatgramProfileCard()
+            CatgramProfileCard(viewModel)
         }
     }
 }
