@@ -8,8 +8,6 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.State
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -22,14 +20,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.sonne.firstcomposeproject.CatgramModel
 import com.sonne.firstcomposeproject.R
 
 @Composable
 fun CatgramProfileCard(
-    viewModel: MainViewModel
+    catgramModel: CatgramModel,
+    onClickFollowed: (CatgramModel) -> Unit
 ) {
-    val isFollowed = viewModel.isFollowing.observeAsState(false)
-
     Card(
         backgroundColor = MaterialTheme.colors.background,
         modifier = Modifier.padding(8.dp),
@@ -63,13 +61,13 @@ fun CatgramProfileCard(
             }
 
             Text(
-                "Catgram",
+                catgramModel.title,
                 fontFamily = FontFamily.Cursive,
                 fontSize = 32.sp
             )
 
             Text(
-                "#AboutMe",
+                "#AboutMe ${catgramModel.id}",
                 fontSize = 14.sp
             )
 
@@ -77,8 +75,8 @@ fun CatgramProfileCard(
                 "www.catgram.ru.lakukaracha",
                 fontSize = 14.sp
             )
-            FollowButton(isFollowed = isFollowed) {
-                viewModel.changeFollowingStatus()
+            FollowButton(isFollowed = catgramModel.isFollowing) {
+                onClickFollowed(catgramModel)
             }
         }
     }
@@ -86,20 +84,20 @@ fun CatgramProfileCard(
 
 @Composable
 private fun FollowButton(
-    isFollowed: State<Boolean>,
+    isFollowed: Boolean,
     clickListener: () -> Unit
 ) {
     Button(
         onClick = { clickListener() },
         colors = ButtonDefaults.buttonColors(
-            backgroundColor = if (isFollowed.value) {
+            backgroundColor = if (isFollowed) {
                 MaterialTheme.colors.primary.copy(alpha = 0.5f)
             } else {
                 MaterialTheme.colors.primary
             }
         )
     ) {
-        val text = if (isFollowed.value) {
+        val text = if (isFollowed) {
             "Unfollow"
         } else {
             "Follow"

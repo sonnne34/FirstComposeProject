@@ -1,4 +1,4 @@
-package com.sonne.firstcomposeproject.ui
+package com.sonne.firstcomposeproject.ui.exampleUI
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.sonne.firstcomposeproject.ui.MainViewModel
 
 @Composable
 fun ScaffoldTest(
@@ -83,7 +84,7 @@ fun ScaffoldTest(
         }
     ) {
         Box(modifier = Modifier.padding(it)) {
-            CatgramProfileCard(viewModel)
+//            CatgramProfileCard(viewModel)
         }
     }
 }
