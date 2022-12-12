@@ -23,15 +23,21 @@ class MainViewModel : ViewModel() {
     private val _catgram = MutableLiveData<List<CatgramModel>>(initialList)
     val catgram: LiveData<List<CatgramModel>> = _catgram
 
-    fun changeIsFollowing(catgram: CatgramModel) {
+    fun changeIsFollowing(model: CatgramModel) {
         val tempCatgram = _catgram.value?.toMutableList() ?: mutableListOf()
         tempCatgram.replaceAll {
-            if (it == catgram) {
+            if (it == model) {
                 it.copy(isFollowing = !it.isFollowing)
             } else {
                 it
             }
         }
+        _catgram.value = tempCatgram
+    }
+
+    fun delete(model: CatgramModel) {
+        val tempCatgram = _catgram.value?.toMutableList() ?: mutableListOf()
+        tempCatgram.remove(model)
         _catgram.value = tempCatgram
     }
 }
